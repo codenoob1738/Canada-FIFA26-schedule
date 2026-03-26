@@ -377,7 +377,7 @@ const players = [
     appearances: 3,
   },
 ];
-
+if (document.getElementById("goalkeepers")) {
 for (let i = 0; i < players.length; i++) {
   var player = players[i];
 
@@ -408,4 +408,66 @@ for (let i = 0; i < players.length; i++) {
   } else if (player.position === "FWD") {
     document.getElementById("forwards").appendChild(member);
   }
+}
+}
+
+const modal = document.getElementById("gameModal");
+
+if (modal) {
+  const previews = document.querySelectorAll(".preview");
+  const closeBtn = document.querySelector(".close-btn");
+  const modalDate = document.getElementById("modalDate");
+  const modalTime = document.getElementById("modalTime");
+  const modalOpponent = document.getElementById("modalOpponent");
+  const modalLocation = document.getElementById("modalLocation");
+  const modalStage = document.getElementById("modalStage");
+  const favouriteBtn = document.getElementById("favouriteBtn");
+
+  let selectedMatch = {};
+
+  for (let i = 0; i < previews.length; i++) {
+    previews[i].addEventListener("click", function () {
+      const date = this.dataset.date;
+      const time = this.dataset.time;
+      const opponent = this.dataset.opponent;
+      const location = this.dataset.location;
+      const stage = this.dataset.stage;
+
+      selectedMatch = {
+        date: date,
+        time: time,
+        opponent: opponent,
+        location: location,
+        stage: stage,
+      };
+
+      modalDate.textContent = "Date: " + date;
+      modalTime.textContent = "Time: " + time;
+      modalOpponent.textContent = "Opponent: " + opponent;
+      modalLocation.textContent = "Location: " + location;
+      modalStage.textContent = "Stage: " + stage;
+
+      modal.style.display = "flex";
+    });
+  }
+
+  closeBtn.addEventListener("click", function () {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+  favouriteBtn.addEventListener("click", function () {
+    let favourites = JSON.parse(localStorage.getItem("favouriteGames")) || [];
+
+    favourites.push(selectedMatch);
+
+    localStorage.setItem("favouriteGames", JSON.stringify(favourites));
+
+    alert("Game added to favourites");
+  });
 }
