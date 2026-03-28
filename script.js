@@ -426,6 +426,14 @@ if (modal) {
   const favouriteBtn = document.getElementById("favouriteBtn");
 
   const opponentFlag = document.getElementById("opponentFlag");
+  const recentForm = document.getElementById("recentForm");
+
+  const recentResults = {
+    "Switzerland": ["W", "W", "D", "W", "D"],
+    "Qatar": ["D", "W", "L", "D", "L"],
+    "ITA/NIR/WAL/BIH": ["-", "-", "-", "-", "-"],
+    "TBD": ["-", "-", "-", "-", "-"],
+  };
 
   let selectedMatch = {};
 
@@ -460,6 +468,22 @@ if (modal) {
       else {
         opponentFlag.src = "images/TBD-flag.jpg";
       }
+
+      let form;
+
+      if (recentResults[opponent]) {
+        form = recentResults[opponent];
+      } else {
+        form = ["-", "-", "-", "-", "-"];
+      }
+
+      let text = " ";
+
+      form.forEach(item => {
+        text += item + " ";
+      });
+
+      recentForm.textContent = "Form: " + text.trim();
 
       modal.style.display = "flex";
     });
