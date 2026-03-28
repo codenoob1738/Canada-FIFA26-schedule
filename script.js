@@ -447,11 +447,11 @@ if (modal) {
 
       modalDate.textContent = "Date: " + date;
       modalTime.textContent = "Time: " + time;
-      modalOpponent.textContent = "Opponent: " + opponent;
+      modalOpponent.textContent = opponent;
       modalLocation.textContent = "Location: " + location;
       modalStage.textContent = "Stage: " + stage;
 
-      if (opponent === "Switerland") {
+      if (opponent === "Switzerland") {
         opponentFlag.src = "images/switzerland-flag.jpg";
       }
       else if (opponent === "Qatar") {
