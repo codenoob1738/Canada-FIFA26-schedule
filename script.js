@@ -377,15 +377,17 @@ const players = [
     appearances: 3,
   },
 ];
+
+
 if (document.getElementById("goalkeepers")) {
-for (let i = 0; i < players.length; i++) {
-  var player = players[i];
+  for (let i = 0; i < players.length; i++) {
+    var player = players[i];
 
-  var member = document.createElement("div");
+    var member = document.createElement("div");
 
-  member.className = "members";
+    member.className = "members";
 
-  member.innerHTML = ` 
+    member.innerHTML = ` 
 
     <img src="images/player-${player.number}.jpg" alt="${player.name}"> 
 
@@ -399,16 +401,16 @@ for (let i = 0; i < players.length; i++) {
 
   `;
 
-  if (player.position === "GK") {
-    document.getElementById("goalkeepers").appendChild(member);
-  } else if (player.position === "DEF") {
-    document.getElementById("defenders").appendChild(member);
-  } else if (player.position === "MID") {
-    document.getElementById("midfielders").appendChild(member);
-  } else if (player.position === "FWD") {
-    document.getElementById("forwards").appendChild(member);
+    if (player.position === "GK") {
+      document.getElementById("goalkeepers").appendChild(member);
+    } else if (player.position === "DEF") {
+      document.getElementById("defenders").appendChild(member);
+    } else if (player.position === "MID") {
+      document.getElementById("midfielders").appendChild(member);
+    } else if (player.position === "FWD") {
+      document.getElementById("forwards").appendChild(member);
+    }
   }
-}
 }
 
 const modal = document.getElementById("gameModal");
@@ -422,6 +424,16 @@ if (modal) {
   const modalLocation = document.getElementById("modalLocation");
   const modalStage = document.getElementById("modalStage");
   const favouriteBtn = document.getElementById("favouriteBtn");
+
+  const opponentFlag = document.getElementById("opponentFlag");
+  const recentForm = document.getElementById("recentForm");
+
+  const recentResults = {
+    "Switzerland": ["W", "W", "D", "W", "D"],
+    "Qatar": ["D", "W", "L", "D", "L"],
+    "ITA/NIR/WAL/BIH": ["-", "-", "-", "-", "-"],
+    "TBD": ["-", "-", "-", "-", "-"],
+  };
 
   let selectedMatch = {};
 
@@ -443,9 +455,35 @@ if (modal) {
 
       modalDate.textContent = "Date: " + date;
       modalTime.textContent = "Time: " + time;
-      modalOpponent.textContent = "Opponent: " + opponent;
+      modalOpponent.textContent = opponent;
       modalLocation.textContent = "Location: " + location;
       modalStage.textContent = "Stage: " + stage;
+
+      if (opponent === "Switzerland") {
+        opponentFlag.src = "images/switzerland-flag.jpg";
+      }
+      else if (opponent === "Qatar") {
+        opponentFlag.src = "images/qatar-flag.jpg";
+      }
+      else {
+        opponentFlag.src = "images/TBD-flag.jpg";
+      }
+
+      let form;
+
+      if (recentResults[opponent]) {
+        form = recentResults[opponent];
+      } else {
+        form = ["-", "-", "-", "-", "-"];
+      }
+
+      let text = " ";
+
+      form.forEach(item => {
+        text += item + " ";
+      });
+
+      recentForm.textContent = "Form: " + text.trim();
 
       modal.style.display = "flex";
     });
