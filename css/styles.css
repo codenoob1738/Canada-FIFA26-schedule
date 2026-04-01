@@ -224,6 +224,13 @@ a {
   text-align: center;
 }
 
+#modalVS {
+  font-size: 18px;
+  color: #db1a1a;
+  font-style: italic;
+  font-weight: bold
+}
+
 .close-btn {
   position: absolute;
   top: 10px;
