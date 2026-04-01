@@ -389,7 +389,7 @@ if (document.getElementById("goalkeepers")) {
 
     member.innerHTML = ` 
 
-    <img src="images/player-${player.number}.jpg" alt="${player.name}"> 
+    <img src="images/Player-${player.number}.jpg" alt="${player.name}"> 
 
     <h5>${player.name}</h5> 
 
