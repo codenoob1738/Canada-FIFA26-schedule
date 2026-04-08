@@ -389,7 +389,7 @@ if (document.getElementById("goalkeepers")) {
 
     member.innerHTML = ` 
 
-    <img src="images/player-${player.number}.jpg" alt="${player.name}"> 
+    <img src="images/Player-${player.number}.jpg" alt="${player.name}"> 
 
     <h5>${player.name}</h5> 
 
@@ -431,7 +431,7 @@ if (modal) {
   const recentResults = {
     "Switzerland": ["W", "W", "D", "W", "D"],
     "Qatar": ["D", "W", "L", "D", "L"],
-    "ITA/NIR/WAL/BIH": ["-", "-", "-", "-", "-"],
+    "Bosnia": ["W", "W", "D", "W", "W"],
     "TBD": ["-", "-", "-", "-", "-"],
   };
 
@@ -464,6 +464,9 @@ if (modal) {
       }
       else if (opponent === "Qatar") {
         opponentFlag.src = "images/qatar-flag.jpg";
+      }
+      else if (opponent === "Bosnia") {
+        opponentFlag.src = "images/bosnia-flag.jpg";
       }
       else {
         opponentFlag.src = "images/TBD-flag.jpg";
