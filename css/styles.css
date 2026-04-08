@@ -337,3 +337,16 @@ button.previous, button.next {
   margin-top: 10px;
   border-radius: 10px;
 }
+
+#favouritesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+  gap: 1em;
+  padding: 10px;
+  margin-right: 10px;
+  justify-content: center;
+}
+
+#favouritesContainer .preview {
+  width: 225px;
+}
