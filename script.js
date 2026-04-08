@@ -512,3 +512,30 @@ if (modal) {
     alert("Game added to favourites");
   });
 }
+
+let currentSlide = 0;
+let slides = document.querySelectorAll(".slide");
+
+slides[currentSlide].classList.add("active");
+
+document.querySelector(".next").onclick = function () {
+  slides[currentSlide].classList.remove("active");
+
+  currentSlide = currentSlide + 1;
+
+  if (currentSlide >= slides.length) {
+    currentSlide = 0;
+  }
+  slides[currentSlide].classList.add("active");
+};
+
+document.querySelector(".previous").onclick = function () {
+  slides[currentSlide].classList.remove("active");
+
+  currentSlide = currentSlide - 1;
+
+  if (currentSlide < 0) {
+    currentSlide = slides.length - 1;
+  }
+  slides[currentSlide].classList.add("active");
+};
