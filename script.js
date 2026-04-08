@@ -505,6 +505,15 @@ if (modal) {
   favouriteBtn.addEventListener("click", function () {
     let favourites = JSON.parse(localStorage.getItem("favouriteGames")) || [];
 
+    let alreadyAdded = favourites.some(function (game) {
+      return game.opponent === selectedMatch.opponent && game.date === selectedMatch.date;
+    });
+
+    if (alreadyAdded) {
+      alert("Game already in favourites!");
+      return;
+    }
+
     favourites.push(selectedMatch);
 
     localStorage.setItem("favouriteGames", JSON.stringify(favourites));
