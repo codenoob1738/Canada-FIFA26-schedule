@@ -89,6 +89,9 @@ h2 {
   border: hidden;
   border-radius: 5px;
   height: 105px;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .preview:hover {
@@ -350,3 +353,15 @@ button.previous, button.next {
 #favouritesContainer .preview {
   width: 225px;
 }
+
+.preview button {
+  padding: 2px;
+  border: none;
+  border-radius: 5px;
+  color: #db1a1a;
+  background: white;
+  cursor: pointer;
+
+  align-self: flex-end;
+}
+
