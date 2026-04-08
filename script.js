@@ -513,32 +513,6 @@ if (modal) {
   });
 }
 
-let currentSlide = 0;
-let slides = document.querySelectorAll(".slide");
-
-slides[currentSlide].classList.add("active");
-
-document.querySelector(".next").onclick = function () {
-  slides[currentSlide].classList.remove("active");
-
-  currentSlide = currentSlide + 1;
-
-  if (currentSlide >= slides.length) {
-    currentSlide = 0;
-  }
-  slides[currentSlide].classList.add("active");
-};
-
-document.querySelector(".previous").onclick = function () {
-  slides[currentSlide].classList.remove("active");
-
-  currentSlide = currentSlide - 1;
-
-  if (currentSlide < 0) {
-    currentSlide = slides.length - 1;
-  }
-  slides[currentSlide].classList.add("active");
-};
 const favouritesContainer = document.getElementById("favouritesContainer");
  
 let favourites = JSON.parse(localStorage.getItem("favouriteGames")) || [];
@@ -572,3 +546,30 @@ favouritesContainer.innerHTML = "<p>No favourite matches added yet! Add matches 
   favouritesContainer.appendChild(div);
  }
 }
+
+let currentSlide = 0;
+let slides = document.querySelectorAll(".slide");
+
+slides[currentSlide].classList.add("active");
+
+document.querySelector(".next").onclick = function () {
+  slides[currentSlide].classList.remove("active");
+
+  currentSlide = currentSlide + 1;
+
+  if (currentSlide >= slides.length) {
+    currentSlide = 0;
+  }
+  slides[currentSlide].classList.add("active");
+};
+
+document.querySelector(".previous").onclick = function () {
+  slides[currentSlide].classList.remove("active");
+
+  currentSlide = currentSlide - 1;
+
+  if (currentSlide < 0) {
+    currentSlide = slides.length - 1;
+  }
+  slides[currentSlide].classList.add("active");
+};
