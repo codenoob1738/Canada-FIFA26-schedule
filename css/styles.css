@@ -114,6 +114,7 @@ body.players-page {
   background-position: center;
   background-attachment: fixed;
   color: white;
+  text-align: center;
 }
 
 .players-overlay {
@@ -121,7 +122,6 @@ body.players-page {
 }
 
 .players-page h4 {
-  text-align: center;
   font-size: 40px;
   margin-bottom: 10px;
   color: #ffffff;
@@ -159,7 +159,6 @@ body.players-page {
 }
 
 .squad h5 {
-  text-align: center;
   font-size: 28px;
   margin-bottom: 20px;
   color: #ffffff;
