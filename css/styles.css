@@ -460,3 +460,182 @@ body.watchlist-page {
 .remove-btn:hover {
   background-color: #25343F;
 }
+
+@media (max-width: 768px) {
+  .nav-list {
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .homepage {
+    grid-template-columns: 1fr;
+    margin-right: 0;
+  }
+
+  .historySection {
+    border-right: none;
+    border-bottom: #db1a1a solid 1px;
+    padding-bottom: 15px;
+  }
+
+  .games {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    margin-right: 0;
+  }
+
+  .preview {
+    width: 100%;
+    max-width: 180px;
+  }
+
+  .squad-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+  }
+
+  .details-container {
+    grid-template-columns: 100px 1fr 100px;
+    gap: 15px;
+  }
+
+  #canadaFlag,
+  #opponentFlag {
+    width: 80px;
+  }
+
+  .players-page h4 {
+    font-size: 28px;
+  }
+
+  .squad h5 {
+    font-size: 20px;
+  }
+
+  .slide h3 {
+    font-size: 22px;
+  }
+
+  .slide p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-list {
+    gap: 20px;
+    font-size: 14px;
+  }
+
+  .header {
+    padding: 10px;
+  }
+
+  .homepage {
+    gap: 10px;
+    padding: 0;
+    margin-right: 0;
+  }
+
+  .historySection,
+  .scheduleSection {
+    padding: 10px;
+  }
+
+  .games {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.8em;
+    padding: 5px;
+  }
+
+  .preview {
+    width: 100%;
+    max-width: 140px;
+    height: 95px;
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .squad-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+  }
+
+  .members img {
+    height: 150px;
+  }
+
+  .members h5 {
+    font-size: 14px;
+    margin: 8px 4px 4px 4px;
+  }
+
+  .members p {
+    font-size: 11px;
+    margin: 4px 5px;
+  }
+
+  .details-container {
+    grid-template-columns: 80px 1fr 80px;
+    gap: 10px;
+  }
+
+  #canadaFlag,
+  #opponentFlag {
+    width: 60px;
+  }
+
+  .modal-content {
+    padding: 15px;
+    max-width: 95%;
+    gap: 15px;
+  }
+
+  .players-page h4 {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  .players-overlay {
+    padding: 15px;
+  }
+
+  .squad {
+    margin: 15px 0;
+    padding: 15px;
+  }
+
+  .squad h5 {
+    font-size: 16px;
+    padding: 8px;
+  }
+
+  .slide h3 {
+    font-size: 18px;
+  }
+
+  .slide p {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  button.previous,
+  button.next {
+    font-size: 18px;
+  }
+
+  #favouritesContainer {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.8em;
+    padding: 5px;
+    margin-right: 0;
+  }
+
+  .no-favourites {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .close-btn {
+    font-size: 24px;
+  }
+}
