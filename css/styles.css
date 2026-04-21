@@ -269,6 +269,12 @@ a {
   }
 }
 
+body.achievements-page {
+  color: black;
+  font-family: 'Gill Sans';
+  font-size: 15px;
+}
+
 .achievements h1 {
   text-align: center;
   color: #db1a1a;
@@ -281,6 +287,11 @@ a {
 .achievements-content h3 {
   color: #db1a1a;
   text-align: center;
+}
+
+.achievements-content p1 {
+  font-size: 12px;
+  color: #25343F;
 }
 
 .slides-container {
