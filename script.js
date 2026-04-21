@@ -505,6 +505,15 @@ if (modal) {
   favouriteBtn.addEventListener("click", function () {
     let favourites = JSON.parse(localStorage.getItem("favouriteGames")) || [];
 
+    let alreadyAdded = favourites.some(function (game) {
+      return game.opponent === selectedMatch.opponent && game.date === selectedMatch.date;
+    });
+
+    if (alreadyAdded) {
+      alert("Game already in favourites!");
+      return;
+    }
+
     favourites.push(selectedMatch);
 
     localStorage.setItem("favouriteGames", JSON.stringify(favourites));
@@ -513,49 +522,48 @@ if (modal) {
   });
 }
 
+const favouritesContainer = document.getElementById("favouritesContainer");
+
+if (favouritesContainer) {
+  let favourites = JSON.parse(localStorage.getItem("favouriteGames")) || [];
+
+  if (favourites.length === 0) {
+    favouritesContainer.innerHTML = `
+<p class="no-favourites">
+No favourite matches added yet! Add matches from the home page to see them here :) 
+</p>
+`;
+  } else {
+
+    for (let i = 0; i < favourites.length; i++) {
+
+      const match = favourites[i];
+
+      const div = document.createElement("div");
+      div.classList.add("preview");
+
+      div.innerHTML = `
+    <p1>${match.date}</p1>
+    <h3>${match.time}</h3>
+    <p1>vs ${match.opponent}</p1>
+    <button class="remove-btn">Remove</button>
+   `;
+
+      const removeBtn = div.querySelector("button");
+
+      removeBtn.addEventListener("click", function () {
+        favourites.splice(i, 1);
+        localStorage.setItem("favouriteGames", JSON.stringify(favourites));
+        location.reload();
+      });
+
+      favouritesContainer.appendChild(div);
+    }
+  }
+}
+
 let currentSlide = 0;
 let slides = document.querySelectorAll(".slide");
-
-function showSlide() {
-  slides.forEach(slide => slide.classList.remove("active"));
-
-  slides[currentSlide].classList.add("active");
-}
-
-if (slides.length > 0) {
-  showSlide();
-}
-
-const nextBtn = document.querySelector(".next");
-if (nextBtn) {
-  nextBtn.onclick = function () {
-    slides[currentSlide].classList.remove("active");
-
-    currentSlide = currentSlide + 1;
-
-    if (currentSlide >= slides.length) {
-      currentSlide = 0;
-    }
-
-    slides[currentSlide].classList.add("active");
-  };
-}
-
-const prevBtn = document.querySelector(".previous");
-if (prevBtn) {
-  prevBtn.onclick = function () {
-    slides[currentSlide].classList.remove("active");
-
-    currentSlide = currentSlide - 1;
-
-    if (currentSlide < 0) {
-      currentSlide = slides.length - 1;
-    }
-
-    slides[currentSlide].classList.add("active");
-  };
-}
-
 
 const favouritesContainer = document.getElementById("favouritesContainer");
 
@@ -590,5 +598,26 @@ if (favouritesContainer) {
 
       favouritesContainer.appendChild(div);
     }
+slides[currentSlide].classList.add("active");
+
+document.querySelector(".next").onclick = function () {
+  slides[currentSlide].classList.remove("active");
+
+  currentSlide = currentSlide + 1;
+
+  if (currentSlide >= slides.length) {
+    currentSlide = 0;
   }
-}
+  slides[currentSlide].classList.add("active");
+};
+
+document.querySelector(".previous").onclick = function () {
+  slides[currentSlide].classList.remove("active");
+
+  currentSlide = currentSlide - 1;
+
+  if (currentSlide < 0) {
+    currentSlide = slides.length - 1;
+  }
+  slides[currentSlide].classList.add("active");
+};
