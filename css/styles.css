@@ -350,3 +350,31 @@ button.previous, button.next {
 #favouritesContainer .preview {
   width: 225px;
 }
+
+body.watchlist-page {
+  background-image: url("../images/watchlistBackground.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+.no-favourites {
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.remove-btn {
+  background-color: #db1a1a;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background-color: #25343F;
+}
