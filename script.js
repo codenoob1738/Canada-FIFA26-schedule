@@ -559,34 +559,36 @@ if (prevBtn) {
 
 const favouritesContainer = document.getElementById("favouritesContainer");
 
-let favourites = JSON.parse(localStorage.getItem("favouriteGames")) || [];
+if (favouritesContainer) {
+  let favourites = JSON.parse(localStorage.getItem("favouriteGames")) || [];
 
-if (favourites.length === 0) {
-  favouritesContainer.innerHTML = "<p>No favourite matches added yet! Add matches from the home page to see them here :)</p>";
-} else {
+  if (favourites.length === 0) {
+    favouritesContainer.innerHTML = "<p>No favourite matches added yet! Add matches from the home page to see them here :)</p>";
+  } else {
 
-  for (let i = 0; i < favourites.length; i++) {
+    for (let i = 0; i < favourites.length; i++) {
 
-    const match = favourites[i];
+      const match = favourites[i];
 
-    const div = document.createElement("div");
-    div.classList.add("preview");
+      const div = document.createElement("div");
+      div.classList.add("preview");
 
-    div.innerHTML = `
+      div.innerHTML = `
     <p1>${match.date}</p1>
     <h3>${match.time}</h3>
      <p1>vs ${match.opponent}</p1>
     <button>Remove</button>
    `;
 
-    const removeBtn = div.querySelector("button");
+      const removeBtn = div.querySelector("button");
 
-    removeBtn.addEventListener("click", function () {
-      favourites.splice(i, 1);
-      localStorage.setItem("favouriteGames", JSON.stringify(favourites));
-      location.reload();
-    });
+      removeBtn.addEventListener("click", function () {
+        favourites.splice(i, 1);
+        localStorage.setItem("favouriteGames", JSON.stringify(favourites));
+        location.reload();
+      });
 
-    favouritesContainer.appendChild(div);
+      favouritesContainer.appendChild(div);
+    }
   }
 }
