@@ -28,8 +28,8 @@ Main Features
     - Styled buttons and containers for better UI
 
 Screenshots OF Live Page
-<img src="images/Website-Demo1.png" width="45%">
-<img src="images/Website-Demo2.png" width="45%">
+<img src="images/Website-Demo1.png">
+<img src="images/Website-Demo2.png">
 
 Installation And Setup
 
